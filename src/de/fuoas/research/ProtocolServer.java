@@ -1,6 +1,7 @@
 package de.fuoas.research;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
@@ -14,11 +15,12 @@ import javax.websocket.server.ServerEndpoint;
 @ServerEndpoint("/ProtocolServer")
 public class ProtocolServer{
 	private static final long serialVersionUID = 1L;
+	private static Logger logger = Logger.getLogger(ProtocolServer.class.getName());
     
 	@OnOpen
 	public void onOpen(Session session)
 	{
-		System.out.println("Session " + session.getId() + " has opened a connection!");
+		logger.info("Session " + session.getId() + " has opened a connection.");
 	}
 	
 	@OnMessage
@@ -26,13 +28,14 @@ public class ProtocolServer{
 	{
 		if(message.contains("Invite")) 
 		{
-			System.out.println("Received Invite from Client!");
+			logger.info("Received Invite from Client.");
 			try {
 				Thread.sleep(1000);
-			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
+			} 
+			catch (InterruptedException e1) {
 				e1.printStackTrace();
 			}
+			
 			try {
 				if(session.isOpen())
 					session.getBasicRemote().sendText("200OK");
@@ -43,13 +46,13 @@ public class ProtocolServer{
 		}
 		else if(message.contains("Ack"))
 		{
-			System.out.println("Received Ack from Client");
+			logger.info("Received Ack from Client");
 		}
 	}
 	
 	@OnClose
 	public void onClose(Session session)
 	{
-		System.out.println("Session " + session.getId() + " has ended!");
+		logger.info("Session " + session.getId() + " has ended!");
 	}
 }

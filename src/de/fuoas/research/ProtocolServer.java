@@ -14,6 +14,7 @@ import javax.websocket.server.ServerEndpoint;
  */
 @ServerEndpoint("/ProtocolServer")
 public class ProtocolServer{
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 1L;
 	private static Logger logger = Logger.getLogger(ProtocolServer.class.getName());
     
@@ -26,6 +27,7 @@ public class ProtocolServer{
 	@OnMessage
 	public void onMessage(String message, Session session)
 	{
+		//TODO: Add your code here to handle data sent by the client
 		if(message.contains("Invite")) 
 		{
 			logger.info("Received Invite from Client.");

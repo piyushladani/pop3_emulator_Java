@@ -19,6 +19,7 @@ $(document).ready(function() {
 	};
 	//receive messages from server
 	ws.onmessage = function(event) {
+		//TODO: Add your code here to handle data sent by the server
 		console.log(event.data);
 		if(event.data == "200OK") {
 			$("#flow").val($("#flow").val() + "\nClient <---- 200 ---- Server");

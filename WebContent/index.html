@@ -2,14 +2,113 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>POP3 Emulator</title>
 <script src="jquery-3.1.1.min.js"></script>
-<script src="handler.js"></script>
+<script type="text/javascript" src="handler.js"></script>
+<link rel="shortcut icon" href="">
+ <a href="http://www.freesoft.org/CIE/RFC/1725/8.htm" style=" font-size: 0.9em;font-family:verdana;float:right;color:#F1F2F7" target="_blank">Command Summary</a>
 </head>
+<style>
+
+body{
+background-image: url("/mobcom25/HTML/background-image.jpg");
+background-size: 100% 100%;;
+background-repeat: no-repeat;
+
+}
+input{
+    height: 20px;
+}
+
+button{
+ 	width: 55px;
+    height: 25px;
+   	background-color:#d9d9d9;
+	border-radius: 10%
+}
+button:hover{
+	background-color:#ffffff;
+}
+
+h1 { 
+    font-family:verdana;
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+}
+h2 { 
+    font-size: 1.1em;
+    
+}
+h3 { 
+    font-family:verdana;
+    display: block;
+    font-size: 0.9em;
+    color:#FFFFFF;
+    font-weight: bold;
+}
+
+textarea{
+padding: 12px;
+}
+</style>
+
 <body>
-	<div>
-		<button id="SendInvite">Send Invite</button>
-		<textarea id="flow" rows="3" cols="80"></textarea>
+
+<div style="padding: 0 20px">
+	<h1><A HREF="javascript:history.go(0)" style="color: #d9d9d9;  text-decoration: none"><i>POP3 Emulator</i></A></h1><br>
+	<div style="margin-right: 1cm;float:left">
+  	<textarea id="flow" rows="14" cols="73" style="background-color:#f7f7f7;border-radius: 2%;color:#3b5998"></textarea>
 	</div>
+	<h2><A id="myHeader1" style="color:#1EC845; font-family:verdana; text-decoration: none">Authorization State</A></h2><br>
+	<div id="divi1">
+		<h3>User Name:</h3>
+		<input type="text" id="username" placeholder="User Name" name="username" class="inputtext radius1" >
+  		<button class="radius title"id="USER">USER</button>&nbsp;
+		<button id="QUIT1">QUIT</button><br><hr style="height:0.8px; visibility:hidden;" />
+		<h3>Password:</h3>
+		<input type="password" id="password" placeholder="Password" name="password" class="inputtext radius1">
+		<button id="PASS">PASS</button><br><hr style="height:0.8px; visibility:hidden;" />
+		
+	</div>
+	<br>
+	<div  id="divi2">
+	<div style="margin-right: 2cm;float:left">
+	<br><h3> State:</h3>
+	<button id="STAT">STAT</button> <span style="padding: 0 37px"></span><br><br><br>
+	<h3> Retrieve:</h3>
+	<input type="text" name="retr" id="retr"/> 
+	<button id="RETR">RETR</button><br>
+	<font style="color: red; font-family:verdana; font-size: 0.8em " id="errmsg1"></font><br><br>
+	
+	</div>	
+	  <div style="float:right; margin-right:11cm">
+		<br><h3> Top:</h3>	
+		<input type="text" name="top" placeholder="Email Nr." id="top"><br>
+		<font style="color: red; font-family:verdana; font-size: 0.8em " id="errmsg4"></font><br>
+		<input type="text" name="top1" placeholder="Line Nr."id="top1">
+		<button id="TOP">TOP</button><br>
+		<font style="color: red; font-family:verdana; font-size: 0.8em " id="errmsg5"></font><br><br>
+		<button id="NOOP">NOOP</button>&nbsp;
+		<button id="RSET">RSET</button>&nbsp;
+		<button id="QUIT">QUIT</button> 
+		
+	</div>
+	<div style="float:">
+		<br><h3> List:</h3>
+		<input type="text" name="list" id="list">
+		<button id="LIST">LIST</button><br>
+		<font style="color: red; font-family:verdana; font-size: 0.8em" id="errmsg3"></font><br><br>
+		<h3> Delete:</h3>
+		<input type="text" name="delete" id="delete">
+		<button id="DELE">DELE</button><br>
+		<font style="color: red; font-family:verdana; font-size: 0.8em" id="errmsg2"></font><br><br>
+		<hr style="height:0.8px; visibility:hidden;" />
+	</div>
+   
+</div>
+   <font style="float:right;color: #303139;font-weight:bold; font-family:verdana; font-size: 0.9em ">Prepared by: Piyush Ladani </font><br>
+</div>
+
 </body>
 </html>
